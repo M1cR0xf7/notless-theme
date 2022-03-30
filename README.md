@@ -1,8 +1,9 @@
 # notless emacs theme
 
-it's a fork of Jason R. Blevins's emacs less theme. with some modifications to
+it's a fork of Jason R. Blevins's emacs less theme with some modifications to
 fit my taste.
 
+![Screenshot](./screenshot.png)
 
 ## To add the theme
 
