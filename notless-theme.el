@@ -1,5 +1,5 @@
 ;; notless-theme.el --- A minimalistic custom theme for Emacs
-;; Revision 1
+;; Revision 2
 ;;
 ;; Copyright (C) 2008-2010, 2016 Jason R. Blevins <jrblevin@sdf.org>
 ;; Copyright (C) 2022-2022, 2022 Youssef Hesham <mail@youssefy.com>
@@ -31,10 +31,11 @@
  ;; Standard font lock faces
  '(default ((t (:background "#000000" :foreground "gray70"))))
  '(bold ((t (:bold t))))
- '(italic ((t (:bold t))))
- '(underline ((t (:bold t))))
+ '(italic ((t (:italic t))))
+ '(underline ((t (:bold t :underline))))
  '(variable-pitch ((t (nil))))
  '(cursor ((t (:background "yellow"))))
+ '(shadow ((t (:foreground "gray30"))))
  '(font-lock-comment-face ((t (:bold t :foreground "cyan"))))
  '(font-lock-comment-delimiter-face ((t (:bold t :foreground "cyan"))))
  '(font-lock-function-name-face ((t (:foreground "gray90"))))
@@ -55,8 +56,19 @@
  '(header-line ((t (:background "#333" :foreground "#000"))))
  '(menu ((t (:background "#111" :foreground "#444"))))
  '(minibuffer-prompt ((t (:foreground "white"))))
- '(modeline ((t (:background "gray20" :foreground "white"))))
- '(mode-line-inactive ((t (:background "gray20" :foreground "light gray"))))
+
+ ;; Line numbers
+ `(line-number ((t (:inherit default :foreground ,"gray30"))))
+ `(line-number-current-line ((t (:inherit line-number :foreground ,"yellow"))))
+
+ ;; Mode Line
+ `(mode-line ((t ,(list :background "#333"
+                        :foreground "light gray"))))
+ ;; '(modeline ((t (:background "gray20" :foreground "white"))))
+ `(mode-line-inactive ((t (:background "#333" :foreground "#888"))))
+ `(mode-line-buffer-id ((t ,(list :background "#333"
+                                  :foreground "white"))))
+
  '(region ((t (:background "light gray" :foreground "black"))))
  '(secondary-selection ((t (:background "Aquamarine" :foreground "SlateBlue"))))
  '(tool-bar ((t (:background "#111" :foreground "#777"))))
@@ -74,10 +86,10 @@
  `(compilation-mode-line-fail ((t ,(list :foreground "#ff2a26"
 										 :weight 'bold
 										 :inherit 'unspecified))))
- `(compilation-mode-line-exit ((t ,(list :foreground "#143D55"
+ `(compilation-mode-line-exit ((t ,(list :foreground "light green"
 										 :weight 'bold
 										 :inherit 'unspecified))))
- 
+
  ;; Search
  '(isearch ((t (:foreground "black" :background "red"))))
  '(isearch-lazy-highlight-face ((t (:foreground "red"))))
@@ -105,6 +117,10 @@
  '(info-menu-header ((t (:bold t :foreground "#666"))))
  '(info-node ((t (:bold t :foreground "#888"))))
  '(info-xref ((t (:bold t :foreground "#777"))))
+
+
+ ;; Org Mode
+ `(org-block ((t (:foreground "gray70"))))
 
  ;; erc
  '(erc-action-face ((t (nil))))
